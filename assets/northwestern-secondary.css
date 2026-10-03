@@ -1,0 +1,323 @@
+:root {
+  --nu-green: #58b947;
+  --nu-teal: #7fcecd;
+  --nu-blue: #5091cd;
+  --nu-lime: #ede93b;
+  --nu-gold: #ffc520;
+  --nu-coral: #ef553f;
+  --nu-dark-green: #008656;
+  --nu-dark-teal: #007fa4;
+  --nu-dark-blue: #0d2d6c;
+  --nu-dark-gold: #d9c826;
+  --nu-dark-orange: #ca7c1b;
+  --nu-dark-coral: #d85820;
+}
+
+.callout-green,
+.callout-blue,
+.callout-gold,
+.callout-coral {
+  border-left-style: solid;
+  border-left-width: 9px;
+  border-radius: 0 5px 5px 0;
+  box-sizing: border-box;
+  color: var(--nu-black-80);
+  margin: 0.65em 0;
+  padding: 0.48em 0.75em;
+}
+
+.callout-green p,
+.callout-blue p,
+.callout-gold p,
+.callout-coral p {
+  margin: 0.16em 0;
+}
+
+.callout-green {
+  background: rgba(88, 185, 71, 0.13);
+  border-left-color: var(--nu-dark-green);
+}
+
+.callout-blue {
+  background: rgba(80, 145, 205, 0.13);
+  border-left-color: var(--nu-dark-blue);
+}
+
+.callout-gold {
+  background: rgba(255, 197, 32, 0.16);
+  border-left-color: var(--nu-dark-orange);
+}
+
+.callout-coral {
+  background: rgba(239, 85, 63, 0.12);
+  border-left-color: var(--nu-dark-coral);
+}
+
+.nu-green {
+  color: var(--nu-dark-green);
+}
+
+.nu-teal {
+  color: var(--nu-dark-teal);
+}
+
+.nu-blue {
+  color: var(--nu-dark-blue);
+}
+
+.nu-gold {
+  color: var(--nu-dark-orange);
+}
+
+.nu-coral {
+  color: var(--nu-dark-coral);
+}
+
+.bg-green {
+  background-color: var(--nu-green);
+}
+
+.bg-teal {
+  background-color: var(--nu-teal);
+}
+
+.bg-blue {
+  background-color: var(--nu-blue);
+}
+
+.bg-lime {
+  background-color: var(--nu-lime);
+}
+
+.bg-gold {
+  background-color: var(--nu-gold);
+}
+
+.bg-coral {
+  background-color: var(--nu-coral);
+}
+
+.bg-dark-green {
+  background-color: var(--nu-dark-green);
+  color: var(--nu-white);
+}
+
+.bg-dark-teal {
+  background-color: var(--nu-dark-teal);
+  color: var(--nu-white);
+}
+
+.bg-dark-blue {
+  background-color: var(--nu-dark-blue);
+  color: var(--nu-white);
+}
+
+.bg-dark-gold {
+  background-color: var(--nu-dark-gold);
+}
+
+.bg-dark-orange {
+  background-color: var(--nu-dark-orange);
+  color: var(--nu-white);
+}
+
+.bg-dark-coral {
+  background-color: var(--nu-dark-coral);
+  color: var(--nu-white);
+}
+
+.secondary-swatches {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.secondary-swatches .swatch {
+  grid-template-columns: 1fr;
+}
+
+.secondary-swatches .swatch strong,
+.secondary-swatches .swatch code {
+  padding: 4px 6px;
+  text-align: left;
+}
+
+.secondary-swatches .swatch span {
+  height: 54px;
+}
+
+.box-green,
+.box-teal,
+.box-blue,
+.box-gold,
+.box-coral,
+.box-inv-green,
+.box-inv-teal,
+.box-inv-blue,
+.box-inv-gold,
+.box-inv-coral {
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: table;
+  line-height: 1.2;
+  margin: 0.22em 0;
+  padding: 0.3em 0.55em;
+}
+
+.box-green {
+  background: var(--nu-green);
+  color: var(--nu-black);
+}
+
+.box-teal {
+  background: var(--nu-teal);
+  color: var(--nu-black);
+}
+
+.box-blue {
+  background: var(--nu-blue);
+  color: var(--nu-black);
+}
+
+.box-gold {
+  background: var(--nu-gold);
+  color: var(--nu-black);
+}
+
+.box-coral {
+  background: var(--nu-coral);
+  color: var(--nu-black);
+}
+
+.box-inv-green {
+  background: rgba(88, 185, 71, 0.13);
+  border: 3px solid var(--nu-dark-green);
+  color: var(--nu-dark-green);
+}
+
+.box-inv-teal {
+  background: rgba(127, 206, 205, 0.18);
+  border: 3px solid var(--nu-dark-teal);
+  color: var(--nu-dark-teal);
+}
+
+.box-inv-blue {
+  background: rgba(80, 145, 205, 0.13);
+  border: 3px solid var(--nu-dark-blue);
+  color: var(--nu-dark-blue);
+}
+
+.box-inv-gold {
+  background: rgba(255, 197, 32, 0.16);
+  border: 3px solid var(--nu-dark-orange);
+  color: var(--nu-dark-orange);
+}
+
+.box-inv-coral {
+  background: rgba(239, 85, 63, 0.12);
+  border: 3px solid var(--nu-dark-coral);
+  color: var(--nu-dark-coral);
+}
+
+.box-green strong,
+.box-teal strong,
+.box-blue strong,
+.box-gold strong,
+.box-coral strong,
+.box-inv-green strong,
+.box-inv-teal strong,
+.box-inv-blue strong,
+.box-inv-gold strong,
+.box-inv-coral strong {
+  color: inherit;
+}
+
+.center .box-green,
+.center .box-teal,
+.center .box-blue,
+.center .box-gold,
+.center .box-coral,
+.center .box-inv-green,
+.center .box-inv-teal,
+.center .box-inv-blue,
+.center .box-inv-gold,
+.center .box-inv-coral,
+.title-inverse .box-green,
+.title-inverse .box-teal,
+.title-inverse .box-blue,
+.title-inverse .box-gold,
+.title-inverse .box-coral {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title-inverse .box-green,
+.title-inverse .box-teal,
+.title-inverse .box-blue,
+.title-inverse .box-gold,
+.title-inverse .box-coral {
+  min-width: 62%;
+}
+
+.remark-slide-content.title-green {
+  border-top-color: var(--nu-dark-green);
+}
+
+.remark-slide-content.title-teal {
+  border-top-color: var(--nu-dark-teal);
+}
+
+.remark-slide-content.title-blue {
+  border-top-color: var(--nu-dark-blue);
+}
+
+.remark-slide-content.title-gold {
+  border-top-color: var(--nu-dark-orange);
+}
+
+.remark-slide-content.title-coral {
+  border-top-color: var(--nu-dark-coral);
+}
+
+.remark-slide-content.title-green > h1:first-of-type {
+  border-bottom-color: var(--nu-green);
+  color: var(--nu-dark-green);
+}
+
+.remark-slide-content.title-teal > h1:first-of-type {
+  border-bottom-color: var(--nu-teal);
+  color: var(--nu-dark-teal);
+}
+
+.remark-slide-content.title-blue > h1:first-of-type {
+  border-bottom-color: var(--nu-blue);
+  color: var(--nu-dark-blue);
+}
+
+.remark-slide-content.title-gold > h1:first-of-type {
+  border-bottom-color: var(--nu-gold);
+  color: var(--nu-dark-orange);
+}
+
+.remark-slide-content.title-coral > h1:first-of-type {
+  border-bottom-color: var(--nu-coral);
+  color: var(--nu-dark-coral);
+}
+
+.section-title-green {
+  border-bottom-color: var(--nu-green);
+}
+
+.section-title-teal {
+  border-bottom-color: var(--nu-teal);
+}
+
+.section-title-blue {
+  border-bottom-color: var(--nu-blue);
+}
+
+.section-title-gold {
+  border-bottom-color: var(--nu-gold);
+}
+
+.section-title-coral {
+  border-bottom-color: var(--nu-coral);
+}
