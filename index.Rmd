@@ -1,7 +1,7 @@
 ---
 title: "Presentation title"
 subtitle: "Subtitle, course, or venue"
-author: "Your name"
+author: "Hussain Hadah"
 date: "`r format(Sys.Date(), '%B %d, %Y')`"
 output:
   xaringan::moon_reader:
@@ -96,7 +96,7 @@ layout: true
 
 ## Start here
 
-1. Replace the four YAML fields at the top of `index.Rmd`.
+1. Replace the title and subtitle at the top of `index.Rmd`. Keep the author set to `Hussain Hadah`.
 2. Keep the four CSS files listed under `css`.
 3. Separate slides with three hyphens on their own line.
 4. Render after each substantial edit.
@@ -447,8 +447,27 @@ The complete setup and publishing instructions are in `README.md`.
 ]
 
 ---
-class: center, middle, section-primary
+class: center, middle, section-primary, contact-slide
 
 # Thank you
 
-## Contact information or final takeaway
+## Hussain Hadah
+
+<div class="contact-list">
+  <a href="mailto:hhadah@tulane.edu">
+    <span class="contact-label">Email</span>
+    <span>hhadah@tulane.edu</span>
+  </a>
+  <a href="https://hussainhadah.com/">
+    <span class="contact-label">Website</span>
+    <span>hussainhadah.com</span>
+  </a>
+  <a href="https://twitter.com/HHeddeh">
+    <span class="contact-label">Twitter</span>
+    <span>@HHeddeh</span>
+  </a>
+  <a href="https://github.com/hhadah">
+    <span class="contact-label">GitHub</span>
+    <span>@hhadah</span>
+  </a>
+</div>

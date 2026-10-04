@@ -11,7 +11,7 @@ The GitHub repository is intended to be used as a template.
 1. Open <https://github.com/hhadah/slides> and click **Use this template**.
 2. Name the new repository for the talk or course.
 3. Clone it and open the `.Rproj` file.
-4. Edit the title, subtitle, author, and date at the top of `index.Rmd`.
+4. Edit the title, subtitle, and date at the top of `index.Rmd`. Keep `author: "Hussain Hadah"` so the name remains on every slide.
 5. Replace or delete the guide slides.
 6. Render `index.html` before each push.
 
@@ -53,6 +53,7 @@ The deck is self-contained, so `index.html` includes its CSS, JavaScript, and ge
 - `assets/fonts.css` uses system fonts and does not require a font download.
 - `assets/animations.css` provides the optional `animated fadeIn` section transition and respects reduced-motion settings.
 - `assets/images/` holds local photos, diagrams, and screenshots.
+- The final slide contains Hussain Hadah's email, website, Twitter handle, and GitHub profile.
 
 Keep custom presentation rules at the end of the relevant CSS file. Do not edit xaringan's generated HTML.
 

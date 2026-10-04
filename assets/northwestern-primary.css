@@ -131,9 +131,13 @@ a:visited {
   max-width: 850px;
 }
 
-.section-primary .slide-footer,
 .section-primary .remark-slide-number {
   display: none;
+}
+
+.section-primary .slide-footer {
+  border-top-color: var(--nu-purple-60);
+  color: var(--nu-purple-20);
 }
 
 .section-light {
@@ -425,9 +429,13 @@ blockquote p {
   max-width: 840px;
 }
 
-.section-title .slide-footer,
 .section-title .remark-slide-number {
   display: none;
+}
+
+.section-title .slide-footer {
+  border-top-color: var(--nu-purple-60);
+  color: var(--nu-purple-20);
 }
 
 .section-title-purple {
@@ -535,4 +543,38 @@ figcaption {
   font-size: 0.58em;
   line-height: 1.25;
   margin-top: 0.35em;
+}
+
+.contact-list {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 1.15em auto 0;
+  max-width: 820px;
+  text-align: left;
+}
+
+.contact-list a,
+.contact-list a:visited {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--nu-purple-60);
+  border-radius: 5px;
+  color: var(--nu-white);
+  display: block;
+  padding: 0.6em 0.75em;
+  text-decoration: none;
+}
+
+.contact-list a:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.contact-label {
+  color: var(--nu-purple-30);
+  display: block;
+  font-size: 0.6em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.15em;
+  text-transform: uppercase;
 }
