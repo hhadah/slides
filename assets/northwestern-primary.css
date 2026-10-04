@@ -578,3 +578,249 @@ figcaption {
   margin-bottom: 0.15em;
   text-transform: uppercase;
 }
+
+a:focus-visible {
+  border-radius: 3px;
+  outline: 4px solid #ffc520;
+  outline-offset: 4px;
+}
+
+.brand-wordmark-slot {
+  color: var(--nu-purple-20);
+  display: inline-block;
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 1.2em;
+  text-transform: uppercase;
+}
+
+.brand-wordmark-slot img {
+  display: block;
+  height: auto;
+  max-height: 64px;
+  max-width: 340px;
+}
+
+.wordmark-demo {
+  background: var(--nu-white);
+  border: 2px solid var(--nu-purple-20);
+  border-radius: 5px;
+  color: var(--nu-purple);
+  font-size: 1.2em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin: 1em 0;
+  padding: 0.8em 1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.full-bleed {
+  color: var(--nu-white);
+  padding: 38px 56px 54px;
+  text-shadow: none;
+}
+
+.full-bleed h1,
+.full-bleed h2,
+.full-bleed h3,
+.full-bleed strong {
+  border: 0;
+  color: var(--nu-white);
+}
+
+.full-bleed .slide-footer {
+  border-top-color: rgba(255, 255, 255, 0.35);
+  color: var(--nu-white);
+}
+
+.full-bleed-caption {
+  background: rgba(29, 2, 53, 0.86);
+  border-left: 10px solid var(--nu-purple-30);
+  border-radius: 0 5px 5px 0;
+  box-sizing: border-box;
+  margin-bottom: 0.6em;
+  max-width: 760px;
+  padding: 0.6em 0.85em;
+}
+
+.full-bleed-caption h1 {
+  font-size: 1.7em;
+  margin-bottom: 0.25em;
+}
+
+.full-bleed-caption p {
+  margin: 0;
+}
+
+.metric-slide {
+  background: var(--nu-purple-10);
+  border-top: 18px solid var(--nu-purple);
+}
+
+.metric-kicker {
+  color: var(--nu-purple);
+  font-size: 0.85em;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.metric-value {
+  color: var(--nu-purple-140);
+  font-size: 5.4em;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+  margin: 0.08em 0;
+}
+
+.metric-description {
+  font-size: 1.2em;
+  line-height: 1.25;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.metric-source {
+  color: var(--nu-black-50);
+  font-size: 0.65em;
+  margin-top: 1.3em;
+}
+
+.quote-slide {
+  background: var(--nu-purple-10);
+  border-left: 24px solid var(--nu-purple);
+  padding-left: 92px;
+}
+
+.quote-mark {
+  color: var(--nu-purple-40);
+  font-family: Georgia, serif;
+  font-size: 6em;
+  font-weight: 700;
+  height: 0.55em;
+  line-height: 0.9;
+}
+
+.quote-text {
+  color: var(--nu-purple-140);
+  font-size: 1.8em;
+  font-weight: 650;
+  line-height: 1.18;
+  max-width: 900px;
+}
+
+.quote-source {
+  color: var(--nu-black-50);
+  font-size: 0.78em;
+  margin-top: 1.2em;
+}
+
+.timeline-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 1.4em;
+}
+
+.timeline-step {
+  background: var(--nu-purple-10);
+  border-top: 8px solid var(--nu-purple);
+  border-radius: 4px;
+  min-height: 210px;
+  padding: 0.75em;
+  position: relative;
+}
+
+.timeline-step span {
+  color: var(--nu-purple-60);
+  display: block;
+  font-size: 0.7em;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.8em;
+}
+
+.timeline-step strong {
+  display: block;
+  font-size: 1.05em;
+}
+
+.timeline-step p {
+  font-size: 0.78em;
+  margin-bottom: 0;
+}
+
+.identification-note,
+.assumption-list {
+  background: var(--nu-purple-10);
+  border-left: 8px solid var(--nu-purple);
+  border-radius: 0 5px 5px 0;
+  box-sizing: border-box;
+  margin-top: 1em;
+  padding: 0.65em 0.8em;
+}
+
+.assumption-list {
+  font-size: 0.85em;
+}
+
+.estimate-card {
+  background: var(--nu-purple);
+  border-bottom: 10px solid var(--nu-purple-30);
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: var(--nu-white);
+  padding: 1em;
+  text-align: center;
+}
+
+.estimate-card .estimate-value {
+  color: var(--nu-white);
+  font-size: 2.6em;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.estimate-card .estimate-label {
+  color: var(--nu-purple-10);
+  font-size: 0.88em;
+  font-weight: 650;
+  margin-top: 0.35em;
+}
+
+.estimate-card .estimate-interval {
+  border-top: 1px solid var(--nu-purple-60);
+  color: var(--nu-purple-20);
+  font-size: 0.68em;
+  margin-top: 0.8em;
+  padding-top: 0.7em;
+}
+
+.estimate-layout {
+  align-items: stretch;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(300px, 0.85fr) minmax(0, 1.15fr);
+  margin-top: 1.1em;
+}
+
+.estimate-card-wide {
+  align-content: center;
+  display: grid;
+  min-height: 300px;
+}
+
+.estimate-interpretation {
+  align-self: center;
+}
+
+.appendix-slide {
+  border-bottom-color: var(--nu-blue, #5091cd);
+}
+
+.contact-slide .slide-footer {
+  display: none;
+}

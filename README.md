@@ -1,21 +1,38 @@
 # Northwestern xaringan slide template
 
-A reusable R Markdown and xaringan repository for Northwestern-branded presentations. `index.Rmd` contains editable placeholders, working examples, presenter notes, both official Northwestern color palettes, and layout patterns adapted from [Andrew Heiss's xaringan decks](https://github.com/andrewheiss).
+A reusable R Markdown and xaringan repository for Northwestern-branded presentations. The visual system adapts layout patterns from [Andrew Heiss's xaringan decks](https://github.com/andrewheiss) to Northwestern's official primary and secondary colors.
 
-After GitHub Pages is enabled, the rendered example is available at <https://hhadah.github.io/slides/>.
+- [Rendered starter deck](https://hhadah.github.io/slides/)
+- [Component guide](https://hhadah.github.io/slides/guide.html)
+- [GitHub template repository](https://github.com/hhadah/slides)
 
 ## Start a new deck
 
-The GitHub repository is intended to be used as a template.
+This repository is a GitHub template.
 
 1. Open <https://github.com/hhadah/slides> and click **Use this template**.
 2. Name the new repository for the talk or course.
-3. Clone it and open the `.Rproj` file.
-4. Edit the title, subtitle, and date at the top of `index.Rmd`. Keep `author: "Hussain Hadah"` so the name remains on every slide.
-5. Replace or delete the guide slides.
-6. Render `index.html` before each push.
+3. Clone it and open `slides.Rproj`.
+4. Edit the title, subtitle, and date at the top of `index.Rmd`.
+5. Edit presenter details once in `_profile.yml`.
+6. Replace the five starter slides. Copy additional layouts from `guide.Rmd` when needed.
+7. Render `index.html` before each push.
 
 For a local copy without GitHub, duplicate this directory and remove its `.git` directory before running `git init` in the copy.
+
+## Repository structure
+
+- `index.Rmd` is the lean starter deck served by GitHub Pages.
+- `guide.Rmd` is the complete layout, color, and syntax gallery.
+- `_profile.yml` is the single source for the author, institution, and contact details used by both decks.
+- `assets/northwestern-primary.css` controls typography, spacing, primary colors, research layouts, tables, and print behavior.
+- `assets/northwestern-secondary.css` adds the official bright and dark secondary colors.
+- `assets/fonts.css` loads the bundled Source Sans 3 variable font without a network request.
+- `assets/colors.R` defines Northwestern color vectors for R figures. It does not install or define a `ggplot2` theme.
+- `assets/images/` holds local photos, diagrams, screenshots, and the full-bleed placeholder.
+- `assets/brand/` is the slot for an approved Northwestern wordmark.
+
+Do not edit generated HTML. Put custom rules at the end of the relevant CSS file.
 
 ## Install once
 
@@ -35,129 +52,76 @@ Run a live preview from the R console:
 xaringan::inf_mr("index.Rmd")
 ```
 
-Save `index.Rmd` to refresh the preview. Stop the preview with `servr::daemon_stop()`.
+Save `index.Rmd` to refresh the preview. Stop it with `servr::daemon_stop()`.
 
-Build the shareable file from a shell:
+Build the starter deck from a shell:
 
 ```sh
 Rscript -e 'rmarkdown::render("index.Rmd")'
 ```
 
-The deck is self-contained, so `index.html` includes its CSS, JavaScript, and generated figures. MathJax loads online when a slide contains an equation. Commit both `index.Rmd` and `index.html`.
+Build both decks:
 
-## What to edit
-
-- `index.Rmd` contains slide content, R code, and the color vectors used by plots.
-- `assets/northwestern-primary.css` controls the title slide, section dividers, typography, tables, spacing, and primary purple palette.
-- `assets/northwestern-secondary.css` adds the official bright and dark secondary colors, chart utilities, and callout boxes.
-- `assets/fonts.css` uses system fonts and does not require a font download.
-- `assets/animations.css` provides the optional `animated fadeIn` section transition and respects reduced-motion settings.
-- `assets/images/` holds local photos, diagrams, and screenshots.
-- The final slide contains Hussain Hadah's email, website, Twitter handle, and GitHub profile.
-
-Keep custom presentation rules at the end of the relevant CSS file. Do not edit xaringan's generated HTML.
-
-## Common slide patterns
-
-Start a slide with a heading:
-
-```markdown
----
-
-## Put the conclusion in the title
-
-- Evidence
-- Implication
+```sh
+Rscript -e 'rmarkdown::render("index.Rmd"); rmarkdown::render("guide.Rmd")'
 ```
 
-Add a primary section divider:
+The HTML files contain their CSS, JavaScript, fonts, and generated figures. MathJax loads online when a slide contains an equation. Commit the R Markdown sources and rendered HTML files.
 
-```markdown
----
-class: center, middle, section-primary
+## Presenter profile
 
-# Section title
+Change personal details in `_profile.yml`:
 
-## One-sentence roadmap
+```yaml
+author: "Hussain Hadah"
+institution: "Northwestern University"
+email: "hhadah@tulane.edu"
 ```
 
-Build a Heiss-style roadmap with stacked boxes:
+The title, footer, and final contact slide read this file. The current email is the Tulane address copied from the earlier slide deck. Replace it in `_profile.yml` if a different address is now preferred.
 
-```markdown
----
-class: title, title-inverse
+## Available layouts
 
-# Talk roadmap
+The starter uses five slides: title, roadmap, section divider, main estimate, and contact.
 
-.box-purple.medium.sp-after-half[01&nbsp;&nbsp;Research question]
+`guide.Rmd` also includes:
 
-.box-teal.medium.sp-after-half[02&nbsp;&nbsp;Data and design]
+- Three-part visual story
+- Statement and takeaway slides
+- Two-column text and image layouts
+- Full-bleed image
+- Headline number
+- Quote with citation
+- Research timeline
+- Identification equation and assumptions
+- Main estimate with confidence interval
+- Tables, equations, palettes, and appendix divider
 
-.box-gold.medium[03&nbsp;&nbsp;Main result]
+Each slide block begins after a line containing three hyphens. Copy the complete block into `index.Rmd`.
+
+## Optional approved wordmark
+
+The repository uses a text label by default and does not recreate or distribute a Northwestern trademark.
+
+To add an approved wordmark:
+
+1. Put it at `assets/brand/northwestern-wordmark.svg`.
+2. Replace the text inside `.brand-wordmark-slot[]` with:
+
+```html
+<img src="assets/brand/northwestern-wordmark.svg"
+     alt="Northwestern University">
 ```
 
-Use a color-coded section divider. The slide stays Northwestern Purple while the bottom rule changes:
-
-```markdown
----
-class: center, middle, section-title, section-title-teal, animated, fadeIn
-
-# Section title
-
-## One-sentence roadmap
-```
-
-Available section accents are `green`, `teal`, `blue`, `gold`, and `coral`. Replace `teal` in `section-title-teal` with the chosen accent.
-
-Set one statement in large type:
-
-```markdown
----
-class: middle, statement-slide
-
-.box-inv-purple.huge[
-One claim. Large type. Nothing competing with it.
-]
-```
-
-Use `.pull-left-3[]`, `.pull-middle-3[]`, and `.pull-right-3[]` for a three-part visual sequence.
-
-Create two columns:
-
-```markdown
-.pull-left[
-Left content
-]
-
-.pull-right[
-Right content
-]
-```
-
-Add speaker notes after three question marks:
-
-```markdown
-???
-Only the presenter sees these notes in presenter mode.
-```
-
-Use a secondary accent without making it the slide's dominant color:
-
-```markdown
-.callout-blue[
-**Comparison group**
-
-Short explanation.
-]
-```
+Use a white approved wordmark on the purple title background.
 
 ## Color system
 
-Northwestern Purple is `#4E2A84`. The primary CSS includes Purple 10 through Purple 160, plus Northwestern's rich-black tints. Use white for most slide backgrounds and Purple 100 as the anchor.
+Northwestern Purple is `#4E2A84`. Most content slides use a white background, with purple as the anchor.
 
 The secondary CSS includes six bright colors and six dark colors. Northwestern recommends these colors for distinctions in charts, graphs, callouts, and controls. Use them sparingly.
 
-The setup chunk in `index.Rmd` defines matching R vectors:
+The setup chunk sources matching R vectors from `assets/colors.R`:
 
 ```r
 nu_primary["purple"]
@@ -169,12 +133,12 @@ Official references:
 - [Northwestern primary palette](https://www.northwestern.edu/brand/visual-identity/color-palettes/)
 - [Northwestern secondary palette](https://www.northwestern.edu/brand/visual-identity/color-palettes/secondary-palette/)
 
-## Images, citations, and equations
+## Images, sources, and equations
 
-Put image files in `assets/images/` and use relative paths:
+Put images in `assets/images/` and use descriptive alt text:
 
 ```markdown
-![](assets/images/figure-name.png)
+![Map showing the treatment and comparison regions](assets/images/map.png)
 ```
 
 Add a source at the bottom of a slide:
@@ -189,6 +153,18 @@ Use normal LaTeX delimiters for math:
 $$Y_i = \alpha + \beta D_i + \varepsilon_i$$
 ```
 
+## Accessibility checklist
+
+Before presenting or publishing:
+
+- Make each slide heading state its claim.
+- Give informative images descriptive alt text.
+- Do not use color as the only group cue.
+- Check text, links, tables, and figures for sufficient contrast.
+- Navigate the deck with the keyboard and confirm that link focus is visible.
+- Export a PDF and check that text and figures remain readable.
+- Keep evidence out of decorative background images because they cannot carry useful alt text.
+
 ## Present and export
 
 Useful keys during a talk:
@@ -199,15 +175,19 @@ Useful keys during a talk:
 - `b` blacks out the slide.
 - `m` mirrors the slide.
 
-Open `index.html` in Chrome or Chromium and print to PDF for a static backup. Enable background graphics in the print dialog so section colors appear.
+Open `index.html` in Chrome or Chromium and print to PDF for a static backup. Enable background graphics in the print dialog.
 
 ## Publish with GitHub Pages
 
-The committed `index.html` can be served from the root of the `main` branch. For a repository created from this template:
+GitHub Pages serves `index.html` from the root of `main` at <https://hhadah.github.io/slides/>. Repositories created from this template need their own Pages setting:
 
 1. Push the rendered `index.html`.
 2. Open **Settings > Pages** on GitHub.
 3. Choose **Deploy from a branch**.
 4. Select `main` and `/ (root)`.
 
-The deck will appear at `https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/` after GitHub finishes the first deployment.
+The deck will appear at `https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/` after the first deployment finishes.
+
+## Bundled font license
+
+Source Sans 3 is Copyright 2010-2024 Adobe and distributed under the SIL Open Font License 1.1. The license is stored at `assets/fonts/LICENSE.md`.

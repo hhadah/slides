@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">Full-bleed image placeholder</title>
+  <desc id="description">Abstract Northwestern purple shapes with a prompt to replace the image.</desc>
+  <rect width="1600" height="900" fill="#30104E"/>
+  <circle cx="1350" cy="180" r="430" fill="#4E2A84"/>
+  <circle cx="150" cy="790" r="520" fill="#684C96" opacity="0.8"/>
+  <path d="M0 620 L620 210 L1110 900 L0 900 Z" fill="#836EAA" opacity="0.65"/>
+  <text x="800" y="430" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="62" font-weight="700" text-anchor="middle">Replace with a 16:9 photo</text>
+  <text x="800" y="500" fill="#CCC4DF" font-family="Arial, sans-serif" font-size="30" text-anchor="middle">Use informative images as &lt;img&gt; elements with alt text</text>
+</svg>

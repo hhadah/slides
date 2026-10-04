@@ -1,0 +1,597 @@
+---
+title: "Northwestern xaringan component guide"
+subtitle: "Layouts, colors, and usage notes"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  xaringan::moon_reader:
+    css:
+      - default
+      - assets/fonts.css
+      - assets/northwestern-primary.css
+      - assets/northwestern-secondary.css
+      - assets/animations.css
+    self_contained: true
+    seal: false
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%"
+      navigation:
+        scroll: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.align = "center",
+  fig.width = 8,
+  fig.height = 4.5,
+  dpi = 144,
+  out.width = "92%"
+)
+
+profile <- yaml::read_yaml("_profile.yml")
+source("assets/colors.R")
+```
+
+class: center, middle, main-title, section-title-purple, animated, fadeIn
+
+.brand-wordmark-slot[`r profile$institution`]
+
+# `r rmarkdown::metadata$title`
+
+.class-info[
+**`r rmarkdown::metadata$subtitle`**
+
+.light[
+`r profile$author`<br>
+`r profile$institution`<br>
+`r format(Sys.Date(), '%B %d, %Y')`
+]
+]
+
+---
+
+layout: true
+
+<div class="slide-footer">
+  <span>`r profile$author`</span>
+  <span>`r profile$institution`</span>
+</div>
+
+---
+
+## How to use this guide
+
+1. Start each talk from the lean `index.Rmd`.
+2. Edit presenter details once in `_profile.yml`.
+3. Copy useful slide blocks from `guide.Rmd`.
+4. Keep the four CSS files listed under `css`.
+
+```r
+rmarkdown::render("index.Rmd")
+rmarkdown::render("guide.Rmd")
+```
+
+.callout-purple[
+**Fast preview:** run `xaringan::inf_mr("index.Rmd")`, then save the file to refresh the browser.
+]
+
+???
+Speaker notes go below three question marks. Press `p` while presenting to see them.
+
+---
+class: title, title-inverse
+
+# Talk roadmap
+
+.box-purple.medium.sp-after-half[01&nbsp;&nbsp;Research question]
+
+.box-teal.medium.sp-after-half[02&nbsp;&nbsp;Data and design]
+
+.box-gold.medium.sp-after-half[03&nbsp;&nbsp;Main result]
+
+.box-coral.medium[04&nbsp;&nbsp;Implications]
+
+???
+This agenda uses stacked color boxes like the provided Andrew Heiss example. Replace the labels, reorder them, or delete the slide.
+
+---
+class: center, middle, section-title, section-title-teal, animated, fadeIn
+
+# Section title
+
+## One sentence that tells the audience where the talk is going
+
+???
+Change the accent with `section-title-green`, `section-title-teal`, `section-title-blue`, `section-title-gold`, or `section-title-coral`.
+
+---
+class: middle, statement-slide
+
+.box-inv-purple.huge[
+One claim. Large type. Nothing competing with it.
+]
+
+???
+Use statement slides to reset attention before an important result.
+
+---
+class: title, title-gold
+
+# Three-part visual story
+
+.pull-left-3[
+.image-placeholder.compact[
+**1. Context**
+
+Image or icon
+]
+]
+
+.pull-middle-3[
+.image-placeholder.compact[
+**2. Change**
+
+Image or icon
+]
+]
+
+.pull-right-3[
+.image-placeholder.compact[
+**3. Result**
+
+Image or icon
+]
+]
+
+.footnote[Add a short source for each image. Use descriptive alt text when replacing the placeholders.]
+
+---
+
+## Put the conclusion in the title
+
+.pull-left-wide[
+
+### Evidence
+
+- Replace this text with the fact the audience needs.
+- Keep one idea per bullet.
+- Use `--` on its own line to reveal the next point.
+
+--
+
+- This bullet appears on the next click.
+
+]
+
+.pull-right-narrow[
+
+.callout-purple[
+**Takeaway**
+
+State the result in one or two sentences. Do not make the audience infer it from the figure.
+]
+
+]
+
+???
+Write the transition to the next slide here.
+
+---
+
+## Two-column slide
+
+.pull-left[
+
+### Left column
+
+.image-placeholder[
+**Image placeholder**
+
+Put an image in `assets/images/`, then replace this box with:
+
+`![Describe the information shown](assets/images/your-image.png)`
+]
+
+]
+
+.pull-right[
+
+### Right column
+
+- Explain what the image shows.
+- Give the source in a `.footnote[]`.
+- Crop before resizing when the subject is too small.
+
+]
+
+.footnote[Source: Replace with the author, title, year, and URL.]
+
+---
+
+## Use secondary colors to distinguish data
+
+.pull-left[
+
+```{r example-plot, echo=FALSE, fig.height=4.2, fig.width=6.2, out.width="100%", fig.alt="Scatterplot of vehicle weight and fuel economy. Four-cylinder cars are dark teal; six- and eight-cylinder cars are purple."}
+point_color <- ifelse(
+  mtcars$cyl == 4,
+  nu_secondary[["dark_teal"]],
+  nu_primary[["purple_60"]]
+)
+
+par(mar = c(4.2, 4.4, 1, 0.5), family = "sans")
+plot(
+  mtcars$wt,
+  mtcars$mpg,
+  pch = 19,
+  col = point_color,
+  xlab = "Weight (1,000 lbs)",
+  ylab = "Miles per gallon",
+  bty = "l"
+)
+abline(
+  lm(mpg ~ wt, data = mtcars),
+  col = nu_primary[["purple"]],
+  lwd = 3
+)
+legend(
+  "topright",
+  legend = c("4 cylinders", "6 or 8 cylinders"),
+  col = c(nu_secondary[["dark_teal"]], nu_primary[["purple_60"]]),
+  pch = 19,
+  bty = "n",
+  cex = 0.8
+)
+```
+
+]
+
+.pull-right[
+
+### What to change
+
+- Replace `mtcars` with the analysis data.
+- Keep Northwestern Purple as the anchor.
+- Reserve secondary colors for groups that need to be told apart.
+- Label the result directly when possible.
+
+.small[The `nu_primary` and `nu_secondary` vectors are defined in the setup chunk.]
+
+]
+
+---
+
+## Equations and tables
+
+.pull-left[
+
+### Equation
+
+Use standard LaTeX delimiters:
+
+$$
+Y_i = \alpha + \beta D_i + X_i'\gamma + \varepsilon_i
+$$
+
+Define every symbol that matters. Put a numbered sequence in an aligned environment only when the talk refers back to it.
+
+]
+
+.pull-right[
+
+### Small table
+
+```{r example-table, echo=FALSE, results="asis"}
+knitr::kable(
+  head(mtcars[c("mpg", "wt", "hp")], 5),
+  format = "html",
+  digits = 1,
+  col.names = c("MPG", "Weight", "Horsepower"),
+  table.attr = 'class="compact-table"'
+)
+```
+
+.small[Large regression tables belong in an appendix. Show the estimates needed for the claim on the slide.]
+
+]
+
+---
+
+## Secondary accents
+
+.pull-left[
+
+.callout-green[
+**Green**
+
+Use for a positive category or a distinct series.
+]
+
+.callout-blue[
+**Blue**
+
+Use for a comparison group or information note.
+]
+
+]
+
+.pull-right[
+
+.callout-gold[
+**Gold**
+
+Use for a warning, threshold, or selected value.
+]
+
+.callout-coral[
+**Coral**
+
+Use for a negative category or a value that needs attention.
+]
+
+]
+
+.small[Northwestern's brand guidance says secondary colors should be rare and should not become the dominant color.]
+
+---
+
+## Northwestern primary palette
+
+<div class="swatch-grid primary-swatches">
+  <div class="swatch" style="--swatch: #1D0235"><span></span><strong>Purple 160</strong><code>#1D0235</code></div>
+  <div class="swatch" style="--swatch: #260841"><span></span><strong>Purple 150</strong><code>#260841</code></div>
+  <div class="swatch" style="--swatch: #30104E"><span></span><strong>Purple 140</strong><code>#30104E</code></div>
+  <div class="swatch" style="--swatch: #38175A"><span></span><strong>Purple 130</strong><code>#38175A</code></div>
+  <div class="swatch" style="--swatch: #401F68"><span></span><strong>Purple 120</strong><code>#401F68</code></div>
+  <div class="swatch" style="--swatch: #482476"><span></span><strong>Purple 110</strong><code>#482476</code></div>
+  <div class="swatch" style="--swatch: #4E2A84"><span></span><strong>Purple 100</strong><code>#4E2A84</code></div>
+  <div class="swatch" style="--swatch: #5B3B8C"><span></span><strong>Purple 90</strong><code>#5B3B8C</code></div>
+  <div class="swatch" style="--swatch: #684C96"><span></span><strong>Purple 80</strong><code>#684C96</code></div>
+  <div class="swatch" style="--swatch: #765DA0"><span></span><strong>Purple 70</strong><code>#765DA0</code></div>
+  <div class="swatch" style="--swatch: #836EAA"><span></span><strong>Purple 60</strong><code>#836EAA</code></div>
+  <div class="swatch" style="--swatch: #9380B6"><span></span><strong>Purple 50</strong><code>#9380B6</code></div>
+  <div class="swatch" style="--swatch: #A495C3"><span></span><strong>Purple 40</strong><code>#A495C3</code></div>
+  <div class="swatch" style="--swatch: #B6ACD1"><span></span><strong>Purple 30</strong><code>#B6ACD1</code></div>
+  <div class="swatch" style="--swatch: #CCC4DF"><span></span><strong>Purple 20</strong><code>#CCC4DF</code></div>
+  <div class="swatch" style="--swatch: #E4E0EE"><span></span><strong>Purple 10</strong><code>#E4E0EE</code></div>
+</div>
+
+.footnote[Use Purple 100 (`#4E2A84`) as the anchor. Most content slides should keep a white background.]
+
+---
+
+## Northwestern secondary palette
+
+<div class="swatch-grid secondary-swatches">
+  <div class="swatch" style="--swatch: #58B947"><span></span><strong>Green</strong><code>#58B947</code></div>
+  <div class="swatch" style="--swatch: #7FCECD"><span></span><strong>Teal</strong><code>#7FCECD</code></div>
+  <div class="swatch" style="--swatch: #5091CD"><span></span><strong>Blue</strong><code>#5091CD</code></div>
+  <div class="swatch" style="--swatch: #EDE93B"><span></span><strong>Lime</strong><code>#EDE93B</code></div>
+  <div class="swatch" style="--swatch: #FFC520"><span></span><strong>Gold</strong><code>#FFC520</code></div>
+  <div class="swatch" style="--swatch: #EF553F"><span></span><strong>Coral</strong><code>#EF553F</code></div>
+  <div class="swatch" style="--swatch: #008656"><span></span><strong>Dark green</strong><code>#008656</code></div>
+  <div class="swatch" style="--swatch: #007FA4"><span></span><strong>Dark teal</strong><code>#007FA4</code></div>
+  <div class="swatch" style="--swatch: #0D2D6C"><span></span><strong>Dark blue</strong><code>#0D2D6C</code></div>
+  <div class="swatch" style="--swatch: #D9C826"><span></span><strong>Dark gold</strong><code>#D9C826</code></div>
+  <div class="swatch" style="--swatch: #CA7C1B"><span></span><strong>Dark orange</strong><code>#CA7C1B</code></div>
+  <div class="swatch" style="--swatch: #D85820"><span></span><strong>Dark coral</strong><code>#D85820</code></div>
+</div>
+
+.footnote[Best use: distinctions within charts, graphs, callouts, and interface controls.]
+
+---
+class: left, bottom, full-bleed
+background-image: url("assets/images/full-bleed-placeholder.svg")
+background-size: cover
+background-position: center
+
+.full-bleed-caption[
+# Full-bleed image
+
+Use this layout for a decorative scene setter. If the image contains evidence, use an `<img>` element with descriptive alt text instead.
+]
+
+---
+class: center, middle, metric-slide
+
+.metric-kicker[Headline result]
+
+.metric-value[27%]
+
+.metric-description[Replace with one number and one sentence that states the denominator and comparison.]
+
+.metric-source[Source: Author, title, year.]
+
+---
+class: middle, quote-slide
+
+.quote-mark[“]
+
+.quote-text[
+Replace this with a short quotation that advances the argument rather than decorating the slide.
+]
+
+.quote-source[Author, *Source title*, year, page.]
+
+---
+
+## Research design or timeline
+
+<div class="timeline-grid">
+  <div class="timeline-step"><span>01</span><strong>Population</strong><p>Who enters the analysis?</p></div>
+  <div class="timeline-step"><span>02</span><strong>Assignment</strong><p>What creates variation?</p></div>
+  <div class="timeline-step"><span>03</span><strong>Measurement</strong><p>When are outcomes observed?</p></div>
+  <div class="timeline-step"><span>04</span><strong>Estimate</strong><p>What comparison identifies the effect?</p></div>
+</div>
+
+.footnote[Keep each step to one claim. Use arrows only when time or causation runs left to right.]
+
+---
+
+## Identification and assumptions
+
+.pull-left[
+
+### Estimand
+
+$$
+\tau = E[Y_i(1) - Y_i(0)]
+$$
+
+.identification-note[
+Name the design and the variation that identifies $\tau$.
+]
+
+]
+
+.pull-right[
+
+### Assumptions
+
+.assumption-list[
+1. **Exchangeability:** state what must be comparable.
+2. **No interference:** define the relevant treatment boundary.
+3. **Measurement:** name the outcome window and unit.
+]
+
+]
+
+---
+
+## Main estimate with uncertainty
+
+.estimate-layout[
+.estimate-card.estimate-card-wide[
+.estimate-value[+4.2]
+
+.estimate-label[percentage points]
+
+.estimate-interval[95% CI: +1.1 to +7.3]
+]
+
+.estimate-interpretation[
+### Interpretation
+
+Replace this text with the population, treatment contrast, outcome, and time horizon. Keep robustness checks off the main result slide.
+]
+]
+
+.footnote[Source: Preferred specification. Add the table or figure reference used in the paper.]
+
+---
+
+## Accessible images and interaction
+
+.pull-left[
+
+### Informative image
+
+```markdown
+![Map showing the treatment and comparison regions](assets/images/map.png)
+```
+
+Write alt text that communicates the evidence, not the file type.
+
+]
+
+.pull-right[
+
+### Quick check
+
+- Headings describe the claim.
+- Color is not the only group cue.
+- Link focus remains visible.
+- Text and figures stay readable in a PDF.
+- Decorative backgrounds carry no evidence.
+
+]
+
+---
+
+## Optional approved wordmark
+
+.wordmark-demo[
+`r profile$institution`
+]
+
+Put an approved file at `assets/brand/northwestern-wordmark.svg`. Then replace the text inside `.brand-wordmark-slot[]` with:
+
+```html
+<img src="assets/brand/northwestern-wordmark.svg"
+     alt="Northwestern University">
+```
+
+.small[The repository does not include or recreate a Northwestern trademark.]
+
+---
+class: center, middle, section-title, section-title-blue, appendix-slide
+
+# Appendix
+
+## Supporting results, robustness checks, and additional definitions
+
+---
+
+## Useful xaringan syntax
+
+.pull-left[
+
+### Slides and layout
+
+- New slide: three hyphens
+- Incremental reveal: two hyphens
+- Columns: `.pull-left[]` and `.pull-right[]`
+- Centered section: `class: center, middle, section-primary`
+- Speaker notes: three question marks
+
+]
+
+.pull-right[
+
+### Presenting
+
+- `h` or `?`: help
+- `p`: presenter mode
+- `c`: clone the presentation window
+- `b`: black screen
+- `m`: mirror the slide
+- Browser print: save a PDF backup
+
+]
+
+.callout-purple[
+The complete setup and publishing instructions are in `README.md`.
+]
+
+---
+class: center, middle, section-primary, contact-slide
+
+# Thank you
+
+## `r profile$author`
+
+<div class="contact-list">
+  <a href="mailto:`r profile$email`">
+    <span class="contact-label">Email</span>
+    <span>`r profile$email`</span>
+  </a>
+  <a href="`r profile$website$url`">
+    <span class="contact-label">Website</span>
+    <span>`r profile$website$label`</span>
+  </a>
+  <a href="`r profile$twitter$url`">
+    <span class="contact-label">Twitter</span>
+    <span>`r profile$twitter$label`</span>
+  </a>
+  <a href="`r profile$github$url`">
+    <span class="contact-label">GitHub</span>
+    <span>`r profile$github$label`</span>
+  </a>
+</div>
